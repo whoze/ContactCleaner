@@ -8,9 +8,11 @@ import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -54,6 +56,8 @@ public class ContactsActivity extends Activity {
 		}
 
 	}
+	
+	
 	
 	/**
 	 * Loads the contacts into the phoneNumbers List. 
@@ -184,10 +188,8 @@ public class ContactsActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		if(DeveloperVersion){
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.main, menu);
-		}
 	    return true;
 	}
 	
@@ -195,17 +197,18 @@ public class ContactsActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
-	        case R.id.test1:
-	            testcase1();
-				makeEverythingNew();
+	        case R.id.help:
+	        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://safadurimo.github.io/ContactCleaner/faq"));
+	        	startActivity(browserIntent);
 	            return true;
-	        case R.id.test2:
-	        	testcase2();
-				makeEverythingNew();
-	            return true;
-	        case R.id.test3:
-	        	testcase3();
-				makeEverythingNew();
+	        case R.id.about:
+	        	AboutActivity about = new AboutActivity(this);
+	        	about.setTitle("about this app");
+	        	DisplayMetrics metrics = getResources().getDisplayMetrics();
+	        	int width = metrics.widthPixels;
+	        	int height = metrics.heightPixels;
+	        	about.show();
+	        	about.getWindow().setLayout((6 * width)/7, (4 * height)/5);
 				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

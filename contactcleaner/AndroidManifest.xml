@@ -3,10 +3,10 @@
     package="de.martinboeschen.contactcleaner"
     android:versionCode="1"
     android:versionName="1.0" >
-    
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>. 
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+. 
     <uses-sdk
         android:minSdkVersion="5"
         android:targetSdkVersion="18" />
@@ -24,6 +24,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="de.martinboeschen.contactcleaner.AboutActivity"
+            android:label="@string/title_activity_about" >
         </activity>
     </application>
 
