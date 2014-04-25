@@ -1,10 +1,12 @@
-package de.martinboeschen.contactcleaner;
+package de.martinboeschen.phoneFormatter;
 
 /* taken form: http://www.techrepublic.com/blog/software-engineer/a-reusable-about-dialog-for-your-android-apps/#. */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import de.martinboeschen.contactcleaner.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
