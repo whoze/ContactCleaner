@@ -1,9 +1,7 @@
-<h3>My App</h3>
+Version 0.9<br>
 
-Version 1.0<br>
+Developed by Martin Boeschen, 2014<br>
 
-Copyright 2011<br>
+Icons created by <b>www.pelfusion.com</b><br>
 
-<b>www.mywebsite.com</b><br><br>
-
-1-800-555-1234
+<b>http://safadurimo.github.io/ContactCleaner</b><br>

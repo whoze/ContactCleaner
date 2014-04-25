@@ -121,8 +121,10 @@ public class ContactsActivity extends Activity {
 		LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		TextView footer = (TextView) vi.inflate(R.layout.footer, null);
 
-		if (phoneNumbers.isEmpty())
-			lv.addFooterView(footer);
+		if (phoneNumbers.isEmpty()){
+			setContentView(R.layout.nosugesstions);
+			return;
+		}
 
 		arrayAdapter = new MyCustomAdapter(this, R.layout.my_list_item,
 				R.id.textView_name, phoneNumbers);
@@ -203,98 +205,15 @@ public class ContactsActivity extends Activity {
 	            return true;
 	        case R.id.about:
 	        	AboutActivity about = new AboutActivity(this);
-	        	about.setTitle("about this app");
-	        	DisplayMetrics metrics = getResources().getDisplayMetrics();
-	        	int width = metrics.widthPixels;
-	        	int height = metrics.heightPixels;
+	        	about.setTitle("About Phone Formatter");
 	        	about.show();
-	        	about.getWindow().setLayout((6 * width)/7, (4 * height)/5);
 				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
 
-	private void testcase1() {
-		deleteAllContacts();
-		Log.v("","Prepared Testcase 1: All contacts deleted");
-		
-	}
 	
-	private void testcase2() {
-		deleteAllContacts();
-		createContact("Martin", "44112345");
-		createContact("Martin", "44199887");
-		Log.v("","Prepared Testcase 2: Two broken contacts");
-		
-	}
-	
-	private void testcase3() {
-		System.out.println("test");
-		deleteAllContacts();
-		createContact("Martin", "+49 441 12345");
-		createContact("Martin", "44112345");
-		Log.v("","Prepared Testcase 3: One broken contact, one correct contact");
-		
-	}
-	
-	private void deleteAllContacts(){
-		ContentResolver contentResolver = getContentResolver();
-        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
-        while (cursor.moveToNext()) {
-            String lookupKey = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY));
-            Uri uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey);
-            System.out.println(contentResolver.delete(uri, null, null));
-        }
-	}
-	
-	private void createContact(String displayName, String phonenumber){
-		 String name = displayName + Math.random();
-
-		 ArrayList < ContentProviderOperation > ops = new ArrayList < ContentProviderOperation > ();
-
-		 ops.add(ContentProviderOperation.newInsert(
-		 ContactsContract.RawContacts.CONTENT_URI)
-		     .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, null)
-		     .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, null)
-		     .build());
-
-		 //------------------------------------------------------ Names
-		 if (name != null) {
-		     ops.add(ContentProviderOperation.newInsert(
-		     ContactsContract.Data.CONTENT_URI)
-		         .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
-		         .withValue(ContactsContract.Data.MIMETYPE,
-		     ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE)
-		         .withValue(
-		     ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME,
-		     name).build());
-		 }
-
-
-		 //------------------------------------------------------ Home Numbers
-		 if (phonenumber != null) {
-		     ops.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
-		         .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
-		         .withValue(ContactsContract.Data.MIMETYPE,
-		     ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE)
-		         .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, phonenumber)
-		         .withValue(ContactsContract.CommonDataKinds.Phone.TYPE,
-		     ContactsContract.CommonDataKinds.Phone.TYPE_HOME)
-		         .build());
-		 }
-
-	
-
-		 // Asking the Contact provider to create a new contact                 
-		 try {
-		     getContentResolver().applyBatch(ContactsContract.AUTHORITY, ops);
-		 } catch (Exception e) {
-		     e.printStackTrace();
-		     Toast.makeText(getApplicationContext(), "Exception: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-		 } 
-		
-	}
 
 	public class Item {
 		String name;
