@@ -29,6 +29,8 @@ import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
+import de.martinboeschen.contactcleaner.R;
+
 public class ContactsActivity extends Activity {
 	
 	boolean DeveloperVersion = false;

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD:phoneFormatter/AndroidManifest.xml
     package="de.martinboeschen.phoneFormatter"
+=======
+    package="de.martinboeschen.contactcleaner"
+>>>>>>> 3f271e988c39a939502dc783d3bf3130139125b7:phoneFormatter/AndroidManifest.xml
     android:versionCode="3"
     android:versionName="0.9.1" >
 

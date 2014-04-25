@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+<<<<<<< HEAD:phoneFormatter/src/de/martinboeschen/phoneFormatter/AboutActivity.java
+=======
+import de.martinboeschen.contactcleaner.R;
+>>>>>>> 3f271e988c39a939502dc783d3bf3130139125b7:phoneFormatter/src/de/martinboeschen/phoneFormatter/AboutActivity.java
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
