@@ -1,18 +1,15 @@
-package de.martinboeschen.contactcleaner;
+package de.martinboeschen.phoneFormatter;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 import android.app.Activity;
-import android.content.ContentProviderOperation;
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;

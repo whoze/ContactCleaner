@@ -1,18 +1,16 @@
-package de.martinboeschen.contactcleaner;
+package de.martinboeschen.phoneFormatter;
 
 /* taken form: http://www.techrepublic.com/blog/software-engineer/a-reusable-about-dialog-for-your-android-apps/#. */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.util.Linkify;
-
-import android.graphics.Color;
-
 import android.widget.TextView;
 
 public class AboutActivity extends Dialog {
